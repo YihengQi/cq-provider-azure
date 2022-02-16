@@ -10,6 +10,8 @@ import (
 	"github.com/cloudquery/cq-provider-azure/resources/services/authorization"
 	"github.com/cloudquery/cq-provider-azure/resources/services/compute"
 	"github.com/cloudquery/cq-provider-azure/resources/services/container"
+	"github.com/cloudquery/cq-provider-azure/resources/services/cosmosdb"
+	"github.com/cloudquery/cq-provider-azure/resources/services/eventhub"
 	"github.com/cloudquery/cq-provider-azure/resources/services/keyvault"
 	"github.com/cloudquery/cq-provider-azure/resources/services/monitor"
 	"github.com/cloudquery/cq-provider-azure/resources/services/mysql"
@@ -43,9 +45,14 @@ func Provider() *provider.Provider {
 			"compute.disks":                  compute.ComputeDisks(),
 			"compute.virtual_machines":       compute.ComputeVirtualMachines(),
 			"container.managed_clusters":     container.ContainerManagedClusters(),
+			"cosmosdb.accounts":              cosmosdb.CosmosDBAccounts(),
+			"cosmosdb.sql_databases":         cosmosdb.CosmosDBSqlDatabases(),
+			"cosmosdb.mongodb_databases":     cosmosdb.CosmosDBMongoDBDatabases(),
+			"eventhub.namespaces":            eventhub.EventHubNamespaces(),
 			// This resource is currently not working
 			// https://github.com/cloudquery/cq-provider-azure/issues/107
 			"keyvault.vaults":      keyvault.KeyvaultVaults(),
+			"keyvault.managed_hsm": keyvault.KeyvaultManagedHSM(),
 			"monitor.log_profiles": monitor.MonitorLogProfiles(),
 			// This resource is currently not working
 			"monitor.diagnostic_settings":          monitor.MonitorDiagnosticSettings(),
